@@ -21,7 +21,11 @@ public class Logica {
 		}
 
 		for (int i = 0; i < 10; i++) {
-			obs.add(new Obstaculo(app, 400, 20 + (i * 20)));
+			obs.add(new Obstaculo(app, 150, 20 + (i * 20)));
+		}
+		
+		for (int i = 0; i < 10; i+=2) {
+			obs.add(new Obstaculo(app, 340, 20 + (i * 20)));
 		}
 	}
 
@@ -39,7 +43,7 @@ public class Logica {
 				Caballo c = cab.get(i);
 				Obstaculo o = obs.get(j);
 				
-				if(PApplet.dist(c.getX(), c.getY(), o.getX(), o.getY())<1){
+				if(PApplet.dist(c.getX(), c.getY(), o.getX(), o.getY())<0.5){
 					c.interrupt();
 				}
 			}
