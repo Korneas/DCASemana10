@@ -7,7 +7,7 @@ public class Caballo extends Thread {
 	private PApplet app;
 	private float x, y;
 	private float vel;
-	private int r;
+	private int r,pos;
 	private long t;
 	private boolean mov, choque;
 
@@ -29,6 +29,10 @@ public class Caballo extends Thread {
 		}
 		app.stroke(t * 20, 80, 80);
 		app.ellipse(x, y, 10, 10);
+		
+		if(fin()){
+			app.text(pos, x-35, y);
+		}
 	}
 
 	public void click() {
@@ -52,6 +56,17 @@ public class Caballo extends Thread {
 				}
 			}
 		}
+	}
+	
+	public boolean fin(){
+		if(x>=app.width){
+			return true;
+		}
+		return false;
+	}
+	
+	public void posicion(int pos){
+		this.pos=pos;
 	}
 
 	public float getX() {
@@ -78,4 +93,13 @@ public class Caballo extends Thread {
 		return r;
 	}
 
+	public int getPos() {
+		return pos;
+	}
+
+	public void setPos(int pos) {
+		this.pos = pos;
+	}
+
+	
 }
