@@ -7,16 +7,18 @@ public class Caballo extends Thread {
 	private PApplet app;
 	private float x, y;
 	private float vel;
+	private int r;
 	private long t;
 	private boolean mov, choque;
 
 	public Caballo(PApplet app, float y) {
 		this.app = app;
 		this.y = y;
+		r = (int) app.random(2);
 		x = 0;
 		y = 0;
 		vel = (float) 0.2;
-		t = (long) app.random(3, 10);
+		t = (long) app.random(2, 8);
 	}
 
 	public void pintar() {
@@ -42,10 +44,11 @@ public class Caballo extends Thread {
 			try {
 				Thread.sleep(t);
 			} catch (InterruptedException e) {
-				System.out.println("Caballo choco");
-				if(choque==false){
-				t+=2;
-				choque=true;
+				if (choque == false && r == 0) {
+					t += 2;
+					choque = true;
+				} else {
+					r = (int) app.random(2);
 				}
 			}
 		}
@@ -71,8 +74,8 @@ public class Caballo extends Thread {
 		return mov;
 	}
 
-	public void setMov(boolean mov) {
-		this.mov = mov;
+	public int getR() {
+		return r;
 	}
 
 }
