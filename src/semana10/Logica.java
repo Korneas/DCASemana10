@@ -39,7 +39,7 @@ public class Logica {
 				Caballo c = cab.get(i);
 				Obstaculo o = obs.get(j);
 				
-				if(PApplet.dist(c.getX(), c.getY(), o.getX(), o.getY())<5){
+				if(PApplet.dist(c.getX(), c.getY(), o.getX(), o.getY())<1){
 					c.interrupt();
 				}
 			}

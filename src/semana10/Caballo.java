@@ -16,7 +16,7 @@ public class Caballo extends Thread {
 		x = 0;
 		y = 0;
 		vel = (float) 0.2;
-		t = (long) app.random(1, 10);
+		t = (long) app.random(3, 10);
 	}
 
 	public void pintar() {
@@ -36,7 +36,7 @@ public class Caballo extends Thread {
 	@Override
 	public void run() {
 		while (true) {
-			if (mov) {
+			if (mov && x < app.width) {
 				x += vel;
 			}
 			try {
@@ -44,7 +44,7 @@ public class Caballo extends Thread {
 			} catch (InterruptedException e) {
 				System.out.println("Caballo choco");
 				choque = true;
-				t-=2;
+				vel -=0.005;
 			}
 		}
 	}

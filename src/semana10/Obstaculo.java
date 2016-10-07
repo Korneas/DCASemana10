@@ -14,8 +14,9 @@ public class Obstaculo {
 	}
 	
 	public void pintar(){
-		app.noStroke();
-		app.fill(50,80,80);
+		app.stroke(360);
+		app.noFill();
+//		app.fill(50,80,80);
 		app.ellipse(x, y, 15, 15);
 	}
 
