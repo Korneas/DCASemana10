@@ -43,8 +43,10 @@ public class Caballo extends Thread {
 				Thread.sleep(t);
 			} catch (InterruptedException e) {
 				System.out.println("Caballo choco");
-				choque = true;
-				vel -=0.005;
+				if(choque==false){
+				t+=2;
+				choque=true;
+				}
 			}
 		}
 	}
